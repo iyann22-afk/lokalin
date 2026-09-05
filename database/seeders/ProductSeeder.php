@@ -59,6 +59,7 @@ class ProductSeeder extends Seeder
                         'stock' => rand(10, 50),
                         'status' => 'active',
                         'sold_count' => rand(0, 40),
+                        'image' => collect(scandir(storage_path('app/public/products')))->filter(fn($f) => str_ends_with($f, '.jpg'))->random(),
                     ]
                 );
             }
